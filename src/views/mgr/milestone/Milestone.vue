@@ -97,8 +97,7 @@
 
 <script>
     import store from 'store/';
-    import Cookies from 'js-cookie';
-    import {formatTime} from 'utils/index';
+    import {deepCopy, formatTime} from 'utils/index';
 
     export default {
         components: {},
@@ -253,7 +252,8 @@
                                     },
                                     on: {
                                         click: () => {
-                                            this.edit(params.row);
+                                            var newobj = deepCopy(params.row);
+                                            this.edit(newobj);
                                         }
                                     }
                                 }, '编辑'),
@@ -418,6 +418,10 @@
 
 
 <style type="text/css" scoped>
+    li {
+        list-style-type: none;
+    }
+
     .link-piece {
         margin: 10px 25px;
     }
