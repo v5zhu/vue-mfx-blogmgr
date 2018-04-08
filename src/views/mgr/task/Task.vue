@@ -354,7 +354,7 @@
                 });
             },
             beanFullName(beanName) {
-                store.dispatch('GetClassFullName', {beanName: beanName}).then(res => {
+                store.dispatch('GetClassFullName', {beanId: beanName}).then(res => {
                     var data = res.data;
                     if (data.success == true) {
                         this.task.beanClass = data.payload;
@@ -372,7 +372,7 @@
                 });
             },
             beanMethodsList(beanName) {
-                store.dispatch('ListClassMethodName', {beanName: beanName}).then(res => {
+                store.dispatch('ListClassMethodName', {beanId: beanName}).then(res => {
                     var data = res.data;
                     if (data.success == true) {
                         this.beanMethodList = data.payload;
