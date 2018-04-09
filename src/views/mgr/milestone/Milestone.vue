@@ -10,58 +10,58 @@
             <Form ref="milestoneForm" :model="milestone" :label-width="80">
                 <Row>
                     <Col span="20" class="link-piece">
-                    <ul>
+                        <ul>
 
-                        <li style="margin: 10px;">
-                            <Form-item prop="time" label="时间点">
-                                <!--<DatePicker v-model="milestone.time" format="yyyy-MM-dd" type="daterange"-->
-                                <!--placement="bottom-end" placeholder="Select date" style="width: 200px">-->
-                                <!--</DatePicker>-->
-                                <el-date-picker
-                                        v-model="milestone.time"
-                                        type="datetimerange"
-                                        range-separator="至"
-                                        start-placeholder="开始日期"
-                                        end-placeholder="结束日期">
-                                </el-date-picker>
+                            <li style="margin: 10px;">
+                                <Form-item prop="time" label="时间点">
+                                    <!--<DatePicker v-model="milestone.time" format="yyyy-MM-dd" type="daterange"-->
+                                    <!--placement="bottom-end" placeholder="Select date" style="width: 200px">-->
+                                    <!--</DatePicker>-->
+                                    <el-date-picker
+                                            v-model="milestone.time"
+                                            type="datetimerange"
+                                            range-separator="至"
+                                            start-placeholder="开始日期"
+                                            end-placeholder="结束日期">
+                                    </el-date-picker>
 
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="status" label="完成状态">
-                                <Select v-model="milestone.status" style="width:200px">
-                                    <Option v-for="item in statusEnums" :value="item.value" :key="item.value">
-                                        {{item.label}}
-                                    </Option>
-                                </Select>
-                            </Form-item>
-                        </li>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="status" label="完成状态">
+                                    <Select v-model="milestone.status" style="width:200px">
+                                        <Option v-for="item in statusEnums" :value="item.value" :key="item.value">
+                                            {{item.label}}
+                                        </Option>
+                                    </Select>
+                                </Form-item>
+                            </li>
 
-                        <li style="margin: 10px;">
-                            <Form-item prop="name" label="显示名称">
-                                <Input v-model="milestone.name" type="text">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="description" label="描述信息">
-                                <Input v-model="milestone.description" type="textarea" :rows="4">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li>
-                            <div style="text-align: right;margin: 10px;">
-                                <Button type="ghost" @click="clearAll('milestoneForm')">
-                                    <Icon type="ios-checkmark" size="14"></Icon>
-                                    清除
-                                </Button>
-                                <Button type="ghost" @click="record">
-                                    <Icon type="ios-checkmark" size="14"></Icon>
-                                    保存
-                                </Button>
-                            </div>
-                        </li>
-                    </ul>
+                            <li style="margin: 10px;">
+                                <Form-item prop="name" label="显示名称">
+                                    <Input v-model="milestone.name" type="text">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="description" label="描述信息">
+                                    <Input v-model="milestone.description" type="textarea" :rows="4">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li>
+                                <div style="text-align: right;margin: 10px;">
+                                    <Button type="ghost" @click="clearAll('milestoneForm')">
+                                        <Icon type="ios-checkmark" size="14"></Icon>
+                                        清除
+                                    </Button>
+                                    <Button type="ghost" @click="record">
+                                        <Icon type="ios-checkmark" size="14"></Icon>
+                                        保存
+                                    </Button>
+                                </div>
+                            </li>
+                        </ul>
                     </Col>
                 </Row>
             </Form>
@@ -71,24 +71,24 @@
 
         <Row>
             <Col span="21">
-            <div style="position:relative;">
-                <Table :columns="tableDataList" :data="pageInfo.list" ref="table">
+                <div style="position:relative;">
+                    <Table :columns="tableDataList" :data="pageInfo.list" ref="table">
 
-                </Table>
-                <div style="position:absolute;top:0px;width:100%;height:100%;display: flex;
+                    </Table>
+                    <div style="position:absolute;top:0px;width:100%;height:100%;display: flex;
                             align-items: center;
                             justify-content: center;background: rgba(210, 216, 222, 0.5);" v-if="list_loadding">
-                    <Spin size="large"></Spin>
-                    <h6 style="color:#2d8cf0;margin-top:10px;">正在获取数据...</h6>
+                        <Spin size="large"></Spin>
+                        <h6 style="color:#2d8cf0;margin-top:10px;">正在获取数据...</h6>
+                    </div>
                 </div>
-            </div>
-            <Page :total="this.pageInfo.total" placement="top"
-                  :page-size-opts="pageSizeOpts"
-                  show-elevator show-sizer show-total
-                  @on-change="changePage"
-                  @on-page-size-change="changePageSize"
-                  style="text-align:left;margin:50px 0">
-            </Page>
+                <Page :total="this.pageInfo.total" placement="top"
+                      :page-size-opts="pageSizeOpts"
+                      show-elevator show-sizer show-total
+                      @on-change="changePage"
+                      @on-page-size-change="changePageSize"
+                      style="text-align:left;margin:50px 0">
+                </Page>
             </Col>
         </Row>
 
@@ -98,9 +98,10 @@
 <script>
     import store from 'store/';
     import {deepCopy, formatTime} from 'utils/index';
+    import expandRow from './../milestone/milestone-table-expand.vue';
 
     export default {
-        components: {},
+        components: {expandRow},
         name: 'milestone',
         data() {
             return {
@@ -128,6 +129,19 @@
                     {value: 1, label: '已完成'}
                 ],
                 tableDataList: [
+                    {
+                        type: 'expand',
+                        width: "30",
+                        ellipsis: 'true',
+
+                        render: (h, params) => {
+                            return h(expandRow, {
+                                props: {
+                                    row: params.row
+                                }
+                            })
+                        }
+                    },
                     {
                         title: '名称',
                         key: 'name',
