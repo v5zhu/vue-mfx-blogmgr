@@ -257,6 +257,21 @@
                             return h('div', [
                                 h('Button', {
                                     props: {
+                                        type: 'info',
+                                        size: 'small',
+                                        loading: false,
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.complete(params.row.id);
+                                        }
+                                    }
+                                }, '完成'),
+                                h('Button', {
+                                    props: {
                                         type: 'primary',
                                         size: 'small',
                                         loading: false,
@@ -339,6 +354,32 @@
                 this.milestone = row;
                 this.milestone.time = new Array(this.formatDate(this.milestone.startTime), this.formatDate(this.milestone.endTime));
                 this.milestoneModal = true;
+            },
+            complete(id) {
+                this.$Modal.confirm({
+                    title: '结束历程',
+                    content: '<p>点击确定1秒后将完成这段历程</p>',
+                    loading: true,
+                    onOk: () => {
+                        setTimeout(() => {
+                            store.dispatch('CompleteMilestone', {id: id}).then(res => { // 拉取user_info
+                                var resp = res.data;
+                                if (resp.success == true) {
+                                    this.$Message.success('操作成功');
+                                    this.milestoneList();
+                                } else {
+                                    this.$Message.error('完成失败');
+                                }
+                            }).catch(err => {
+                                console.log("请求失败");
+                            })
+                            this.$Modal.remove();
+                        }, 1000);
+                    },
+                    onCancel: () => {
+                        this.$Message.info('取消操作');
+                    }
+                });
             },
             remove(id) {
                 this.$Modal.confirm({

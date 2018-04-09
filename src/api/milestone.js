@@ -16,6 +16,13 @@ export function modifyMilestone(milestone) {
     });
 }
 
+export function completeMilestone(id) {
+    return fetch({
+        url: '/complete/milestone/' + id + '.token',
+        method: 'put'
+    });
+}
+
 export function deleteMilestone(id) {
     return fetch({
         url: '/milestone/' + id + '.token',
