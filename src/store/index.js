@@ -13,6 +13,8 @@ import role from './modules/role';
 import func from './modules/function';
 import permission from './modules/permission';
 import rolePermission from './modules/rolePermission';
+import category from './modules/category';
+import tag from './modules/tag';
 import getters from './getters';
 
 Vue.use(Vuex);
@@ -31,7 +33,9 @@ const store = new Vuex.Store({
         role,
         func,
         permission,
-        rolePermission
+        rolePermission,
+        category,
+        tag
     },
     getters
 });
