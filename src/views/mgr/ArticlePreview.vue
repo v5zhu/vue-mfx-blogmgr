@@ -462,6 +462,9 @@
 </script>
 
 <style scoped>
+    li{
+        list-style-type: none;
+    }
     .left-icon-class {
         margin-left: -3px;
         margin-top: 3px;
