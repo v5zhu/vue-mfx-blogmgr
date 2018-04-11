@@ -65,7 +65,6 @@ const scrollBehavior = (to, from, savedPosition) => {
 export default new Router({
     mode: 'history',
     // mode: 'hash',
-    base:'/mfx/backend',
     linkActiveClass: 'linkActiveClass',
     scrollBehavior: scrollBehavior,
     routes: constantRouterMap
