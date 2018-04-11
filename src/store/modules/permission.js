@@ -8,54 +8,7 @@ import {
     userRouteTree,
     userRouteTreeByOpen
 } from 'api/permission';
-import VisitorFull from '@/containers/VisitorFull';
-import BackFull from '@/containers/BackFull';
 
-
-// import BackFull from '@/containers/Full';
-
-const _import = require('../../router/_import_' + process.env.NODE_ENV);
-
-
-function getRoutes(routes) {
-    try {
-        routes.forEach(function (route) {
-            var component;
-
-            if (route.parent == null) {
-                if (route.component == '@/containers/Full') {
-                    component = BackFull;
-                } else if (route.component == '@/containers/VisitorFull') {
-                    component = VisitorFull;
-                } else if (route.component == 'router-view') {
-                    component = {
-                        render(c) {
-                            return c('router-view')
-                        }
-                    }
-                }
-            } else {
-                if (route.component == 'router-view') {
-                    component = {
-                        render(c) {
-                            return c('router-view')
-                        }
-                    }
-                }
-                else {
-                    component = _import(route.component);
-                }
-            }
-            route.component = component;
-            if (route.children != null && route.children.length != 0) {
-                getRoutes(route.children)
-            }
-        })
-        return routes;
-    } catch (err) {
-        console.error(err)
-    }
-}
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
@@ -145,13 +98,12 @@ const permission = {
             return new Promise(resolve => {
                 const {roles} = data
                 let accessedRouters;
-
-                if (roles.indexOf('admin') >= 0) {
+                console.log("匹配管理员结果:" + roles.indexOf('admin'))
+                if (roles.indexOf('admin') !== -1) {
                     accessedRouters = constantRouterMap
                 } else {
                     accessedRouters = filterAsyncRouter(constantRouterMap, roles)
                 }
-
 
                 commit('SET_ROUTERS', accessedRouters);
                 resolve();

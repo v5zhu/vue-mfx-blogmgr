@@ -4,14 +4,6 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
 import Cookies from 'js-cookie';
 
-const _import = require('./router/_import_' + process.env.NODE_ENV);
-
-// permissiom judge
-function hasPermission(roles, permissionRoles) {
-    if (roles.roles.indexOf('admin') >= 0) return true // admin权限 直接通过
-    if (!permissionRoles) return true;
-    return roles.roles.some(role => permissionRoles.indexOf(role) >= 0)
-}
 
 // register global progress.
 const whiteList = ['/admin/login', '/authredirect']// 不重定向白名单
@@ -23,7 +15,6 @@ router.beforeEach((to, from, next) => {
     if (jsonString) {
         user = JSON.parse(jsonString);
     }
-    // console.log("用户：" + user);
 
     if (user && user.token) { // 判断是否有token
 
@@ -31,7 +22,6 @@ router.beforeEach((to, from, next) => {
 
         store.dispatch('GenerateRoutes', {roles}).then(() => { // 生成可访问的路由表
             router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-            next({...to}) // hack方法 确保addRoutes已完成
             store.dispatch('generateMenus', to);
         })
 
@@ -44,7 +34,6 @@ router.beforeEach((to, from, next) => {
             if (to.path.indexOf('admin') == -1) {
                 store.dispatch('GenerateRoutes', {roles: []}).then(() => { // 生成可访问的路由表
                     router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-                    next({...to}) // hack方法 确保addRoutes已完成
                 })
 
                 store.dispatch('generateMenus', to);

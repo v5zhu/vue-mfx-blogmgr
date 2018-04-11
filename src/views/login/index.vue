@@ -124,7 +124,7 @@
                                 var user = res.data.payload;
                                 Cookies.set('USER-INFO', user);
                                 this.loading = false;
-                                this.$router.push({path: '/dashboard'});
+                                this.$router.push({path: '/admin/dashboard'});
                             } else {
                                 this.$Message.success('登录失败');
                             }
