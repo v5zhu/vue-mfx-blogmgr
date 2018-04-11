@@ -63,8 +63,9 @@ const scrollBehavior = (to, from, savedPosition) => {
 
 //使用浏览器历史访问模式，可使用浏览器前进后退功能
 export default new Router({
-    // mode: 'history',
-    mode: 'hash',
+    mode: 'history',
+    // mode: 'hash',
+    base:'/mfx/backend',
     linkActiveClass: 'linkActiveClass',
     scrollBehavior: scrollBehavior,
     routes: constantRouterMap
