@@ -241,9 +241,8 @@
                         this.$Message.error('加载失败');
                     }
                 }).catch(err => {
-                    console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -302,9 +301,8 @@
                         this.$Message.error('加载失败');
                     }
                 }).catch(err => {
-                    console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -323,9 +321,8 @@
                         this.$Message.error('加载失败');
                     }
                 }).catch(err => {
-                    console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -343,9 +340,8 @@
                             this.$Message.error('加载失败');
                         }
                     }).catch(err => {
-                        console.log(err)
                         this.$Message.error({
-                            content: err.data.msg,
+                            content: err.data.error,
                             duration: 5,
                             closable: true
                         });
@@ -360,9 +356,8 @@
                             this.$Message.error('加载失败');
                         }
                     }).catch(err => {
-                        console.log(err)
                         this.$Message.error({
-                            content: err.data.msg,
+                            content: err.data.error,
                             duration: 5,
                             closable: true
                         });
@@ -386,7 +381,7 @@
                                 }
                             }).catch(err => {
                                 this.$Message.error({
-                                    content: err.data.msg,
+                                    content: err.data.error,
                                     duration: 5,
                                     closable: true
                                 });

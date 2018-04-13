@@ -193,7 +193,10 @@
                         title: '父组件',
                         ellipsis: true,
                         render: (h, params) => {
-                            var parent = !params.row.parent.id ? '' : '【' + params.row.parent.name + '】';
+                            var parent='';
+                            if(params.row.parent) {
+                                parent = !params.row.parent.id ? '' : '【' + params.row.parent.name + '】';
+                            }
                             return h('div', [
                                 h('div', {
                                     style: {
@@ -393,7 +396,7 @@
                 }).catch(err => {
                     console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -410,7 +413,7 @@
                 }).catch(err => {
                     console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -431,7 +434,7 @@
                 }).catch(err => {
                     console.log(err)
                     this.$Message.error({
-                        content: err.data.msg,
+                        content: err.data.error,
                         duration: 5,
                         closable: true
                     });
@@ -456,7 +459,7 @@
                     }).catch(err => {
                         console.log(err)
                         this.$Message.error({
-                            content: err.data.msg,
+                            content: err.data.error,
                             duration: 5,
                             closable: true
                         });
@@ -473,7 +476,7 @@
                     }).catch(err => {
                         console.log(err)
                         this.$Message.error({
-                            content: err.data.msg,
+                            content: err.data.error,
                             duration: 5,
                             closable: true
                         });
@@ -497,7 +500,7 @@
                                 }
                             }).catch(err => {
                                 this.$Message.error({
-                                    content: err.data.msg,
+                                    content: err.data.error,
                                     duration: 5,
                                     closable: true
                                 });

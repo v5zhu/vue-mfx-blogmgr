@@ -24,8 +24,8 @@ module.exports = {
         staticPath: '/static/',
         proxyTable: {
             '/blogmgr': {
-                target: 'http://47.96.28.236:8088',
-                // target: 'http://localhost:8088',
+                // target: 'http://47.96.28.236:8088',
+                target: 'http://localhost:8088',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/': ''

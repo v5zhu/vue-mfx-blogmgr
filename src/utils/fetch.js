@@ -38,6 +38,8 @@ service.interceptors.response.use(response => {
             router.replace({
                 path: '/pages/500'
             })
+        } else if (response.data.success === false) {
+            return Promise.reject(response)
         } else {
             return Promise.resolve(response);
         }
