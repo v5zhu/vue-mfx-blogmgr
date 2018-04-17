@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function register(user) {
     return fetch({
-        url: '/user/register',
+        url: '/blogmgr/user/register',
         method: 'post',
         data: user
     });
@@ -10,7 +10,7 @@ export function register(user) {
 
 export function login(loginData) {
     return fetch({
-        url: '/user/login',
+        url: '/blogmgr/user/login',
         method: 'put',
         data: loginData
     });
@@ -18,7 +18,7 @@ export function login(loginData) {
 
 export function setUserRole(data) {
     return fetch({
-        url: '/admin/user/role.token',
+        url: '/blogmgr/admin/user/role.token',
         method: 'put',
         data: data
     });
@@ -26,7 +26,7 @@ export function setUserRole(data) {
 
 export function listUser(params) {
     return fetch({
-        url: '/admin/user/list.token',
+        url: '/blogmgr/admin/user/list.token',
         method: 'get',
         params: params
     });
@@ -35,7 +35,7 @@ export function listUser(params) {
 
 export function modifyUser(user) {
     return fetch({
-        url: '/user/modify.token',
+        url: '/blogmgr/user/modify.token',
         method: 'put',
         data: user
     });
@@ -43,14 +43,14 @@ export function modifyUser(user) {
 
 export function deleteUser(id) {
     return fetch({
-        url: '/admin/delete/user/' + id + '.token',
+        url: '/blogmgr/admin/delete/user/' + id + '.token',
         method: 'delete'
     });
 }
 
 export function modifyPassword(user) {
     return fetch({
-        url: '/user/password/modify.token',
+        url: '/blogmgr/user/password/modify.token',
         method: 'put',
         data: user
     });
@@ -62,7 +62,7 @@ export function loginByEmail(loginName, password) {
         password
     };
     return fetch({
-        url: '/admin/login',
+        url: '/blogmgr/admin/login',
         method: 'post',
         data
     });
@@ -70,7 +70,7 @@ export function loginByEmail(loginName, password) {
 
 export function logout(token) {
     return fetch({
-        url: '/user/logout.token',
+        url: '/blogmgr/user/logout.token',
         method: 'put',
         params: token
     });
@@ -78,7 +78,7 @@ export function logout(token) {
 
 export function getInfo(token) {
     return fetch({
-        url: '/admin/userInfo',
+        url: '/blogmgr/admin/userInfo',
         method: 'get',
         params: {token}
     });
@@ -86,7 +86,7 @@ export function getInfo(token) {
 
 export function getAuthorInfo(params) {
     return fetch({
-        url: '/author',
+        url: '/blogmgr/author',
         method: 'get',
         params: params
     });

@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function addFeedback(feedback) {
     return fetch({
-        url: '/feedback',
+        url: '/blogmgr/feedback',
         method: 'post',
         data: feedback
     });

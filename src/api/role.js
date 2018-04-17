@@ -2,14 +2,14 @@ import fetch from 'utils/fetch';
 
 export function roleTree() {
     return fetch({
-        url: '/admin/role/tree.token',
+        url: '/blogmgr/admin/role/tree.token',
         method: 'get'
     });
 }
 
 export function listRole(params) {
     return fetch({
-        url: '/admin/role/list.token',
+        url: '/blogmgr/admin/role/list.token',
         method: 'get',
         params: params
     });
@@ -18,7 +18,7 @@ export function listRole(params) {
 
 export function addRole(data) {
     return fetch({
-        url: '/admin/role.token',
+        url: '/blogmgr/admin/role.token',
         method: 'post',
         data: data
     });
@@ -27,7 +27,7 @@ export function addRole(data) {
 
 export function editRole(data) {
     return fetch({
-        url: '/admin/role.token',
+        url: '/blogmgr/admin/role.token',
         method: 'put',
         data: data
     });
@@ -35,7 +35,7 @@ export function editRole(data) {
 
 export function deleteRole(id) {
     return fetch({
-        url: 'admin/role/' + id + '.token',
+        url: '/blogmgr/admin/role/' + id + '.token',
         method: 'delete'
     });
 }

@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function recordMilestone(milestone) {
     return fetch({
-        url: '/milestone/record.token',
+        url: '/blogmgr/milestone/record.token',
         method: 'post',
         data: milestone
     });
@@ -10,7 +10,7 @@ export function recordMilestone(milestone) {
 
 export function modifyMilestone(milestone) {
     return fetch({
-        url: '/milestone/modify.token',
+        url: '/blogmgr/milestone/modify.token',
         method: 'put',
         data: milestone
     });
@@ -18,14 +18,14 @@ export function modifyMilestone(milestone) {
 
 export function completeMilestone(id) {
     return fetch({
-        url: '/complete/milestone/' + id + '.token',
+        url: '/blogmgr/complete/milestone/' + id + '.token',
         method: 'put'
     });
 }
 
 export function deleteMilestone(id) {
     return fetch({
-        url: '/milestone/' + id + '.token',
+        url: '/blogmgr/milestone/' + id + '.token',
         method: 'delete'
     });
 }
@@ -33,7 +33,7 @@ export function deleteMilestone(id) {
 
 export function milestoneList(params) {
     return fetch({
-        url: '/milestone/list.open',
+        url: '/blogmgr/milestone/list.open',
         method: 'get',
         params: params
     });
