@@ -1,5 +1,5 @@
 module.exports = {
     NODE_ENV: '"production"',
-    BASE_API: '"http://47.96.28.236:8888"',
+    BASE_API: '"http://systemmgr.mofaxue.com"',
     APP_ORIGIN: '"https://wz.com"'
 };

@@ -12,7 +12,6 @@ router.beforeEach((to, from, next) => {
     var jsonString = Cookies.get('LOGIN-ADMIN');
     var user = undefined;
 
-    alert(jsonString);
     if (jsonString) {
         user = JSON.parse(jsonString);
     }

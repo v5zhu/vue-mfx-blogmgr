@@ -24,7 +24,7 @@ module.exports = {
         staticPath: '/static/',
         proxyTable: {
             '/blogmgr': {
-                target: 'http://47.96.28.236:8088',
+                target: 'http://systemmgr.mofaxue.com',
                 // target: 'http://localhost:8088',
                 changeOrigin: true,
                 pathRewrite: {
@@ -32,8 +32,8 @@ module.exports = {
                 }
             },
             '/timetask': {
-                // target: 'http://47.96.28.236:9999',
-                target: 'http://localhost:9999',
+                target: 'http://systemmgr.mofaxue.com',
+                // target: 'http://localhost:9999',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/': ''
