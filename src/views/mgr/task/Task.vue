@@ -10,70 +10,86 @@
             <Form ref="taskForm" :model="task" :label-width="80">
                 <Row>
                     <Col span="20" class="link-piece">
-                    <ul>
-                        <li style="margin: 10px;">
-                            <Form-item prop="springId" label="Bean">
-                                <Select v-model="task.springId" filterable clearable @on-change="changeSpringId">
-                                    <Option v-for="item in beanList" :value="item" :key="item">{{
-                                        item }}
-                                    </Option>
-                                </Select>
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="beanClass" label="类全名">
-                                <Input v-model="task.beanClass" disabled type="text">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="methodName" label="方法">
-                                <Select v-model="task.methodName" style="width:200px">
-                                    <Option v-for="item in beanMethodList" :value="item" :key="item">
-                                        {{item}}
-                                    </Option>
-                                </Select>
-                            </Form-item>
-                        </li>
+                        <ul>
+                            <li style="margin: 10px;">
+                                <Form-item prop="springId" label="Bean">
+                                    <Select v-model="task.springId" filterable clearable @on-change="changeSpringId">
+                                        <Option v-for="item in beanList" :value="item" :key="item">{{
+                                            item }}
+                                        </Option>
+                                    </Select>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="beanClass" label="类全名">
+                                    <Input v-model="task.beanClass" disabled type="text">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="methodName" label="方法">
+                                    <Select v-model="task.methodName" style="width:200px">
+                                        <Option v-for="item in beanMethodList" :value="item" :key="item">
+                                            {{item}}
+                                        </Option>
+                                    </Select>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="isConcurrent" label="是否并发">
+                                    <Select v-model="task.isConcurrent" style="width:200px">
+                                        <Option v-for="item in concurrents" :value="item.value" :key="item.value">
+                                            {{item.label}}
+                                        </Option>
+                                    </Select>
+                                </Form-item>
+                            </li>
 
-                        <li style="margin: 10px;">
-                            <Form-item prop="jobName" label="任务名称">
-                                <Input v-model="task.jobName" type="text">
-                                </Input>
-                            </Form-item>
-                        </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="jobName" label="任务名称">
+                                    <Input v-model="task.jobName" type="text">
+                                    </Input>
+                                </Form-item>
+                            </li>
 
-                        <li style="margin: 10px;">
-                            <Form-item prop="jobGroup" label="任务分组">
-                                <Input v-model="task.jobGroup" type="text">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="cronExpression" label="cron表达式">
-                                <Input v-model="task.cronExpression" type="text">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li style="margin: 10px;">
-                            <Form-item prop="description" label="描述信息">
-                                <Input v-model="task.description" type="textarea" :rows="4">
-                                </Input>
-                            </Form-item>
-                        </li>
-                        <li>
-                            <div style="text-align: right;margin: 10px;">
-                                <Button type="ghost" @click="clearAll('taskForm')">
-                                    <Icon type="ios-checkmark" size="14"></Icon>
-                                    清除
-                                </Button>
-                                <Button type="ghost" @click="saveTask">
-                                    <Icon type="ios-checkmark" size="14"></Icon>
-                                    保存
-                                </Button>
-                            </div>
-                        </li>
-                    </ul>
+                            <li style="margin: 10px;">
+                                <Form-item prop="jobGroup" label="任务分组">
+                                    <Input v-model="task.jobGroup" type="text">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="cronExpression" label="cron表达式">
+                                    <Input v-model="task.cronExpression" type="text">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="parameters" label="方法参数">
+                                    <Input v-model="task.parameters" type="textarea" :rows="4"
+                                           placeholder='JSON格式数据,如:{"key":"value"}'>
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li style="margin: 10px;">
+                                <Form-item prop="description" label="描述信息">
+                                    <Input v-model="task.description" type="textarea" :rows="4">
+                                    </Input>
+                                </Form-item>
+                            </li>
+                            <li>
+                                <div style="text-align: right;margin: 10px;">
+                                    <Button type="ghost" @click="clearAll('taskForm')">
+                                        <Icon type="ios-checkmark" size="14"></Icon>
+                                        清除
+                                    </Button>
+                                    <Button type="ghost" @click="saveTask">
+                                        <Icon type="ios-checkmark" size="14"></Icon>
+                                        保存
+                                    </Button>
+                                </div>
+                            </li>
+                        </ul>
                     </Col>
                 </Row>
             </Form>
@@ -82,24 +98,24 @@
         </Modal>
         <Row>
             <Col span="21">
-            <div style="position:relative;margin-top: 10px;">
-                <Table :columns="tableDataList" :data="pageInfo.list" ref="table">
+                <div style="position:relative;margin-top: 10px;">
+                    <Table :columns="tableDataList" :data="pageInfo.list" ref="table">
 
-                </Table>
-                <div style="position:absolute;top:0px;width:100%;height:100%;display: flex;
+                    </Table>
+                    <div style="position:absolute;top:0px;width:100%;height:100%;display: flex;
                             align-items: center;
                             justify-content: center;background: rgba(210, 216, 222, 0.5);" v-if="list_loadding">
-                    <Spin size="large"></Spin>
-                    <h6 style="color:#2d8cf0;margin-top:10px;">正在获取数据...</h6>
+                        <Spin size="large"></Spin>
+                        <h6 style="color:#2d8cf0;margin-top:10px;">正在获取数据...</h6>
+                    </div>
                 </div>
-            </div>
-            <Page :total="this.pageInfo.total" placement="top"
-                  :page-size-opts="pageSizeOpts"
-                  show-elevator show-sizer show-total
-                  @on-change="changePage"
-                  @on-page-size-change="changePageSize"
-                  style="text-align:left;margin:50px 0">
-            </Page>
+                <Page :total="this.pageInfo.total" placement="top"
+                      :page-size-opts="pageSizeOpts"
+                      show-elevator show-sizer show-total
+                      @on-change="changePage"
+                      @on-page-size-change="changePageSize"
+                      style="text-align:left;margin:50px 0">
+                </Page>
             </Col>
         </Row>
 
@@ -126,6 +142,8 @@
                     beanClass: '',
                     springId: '',
                     methodName: '',
+                    parameters: null,
+                    isConcurrent: 0,
                     gmtCreate: '',
                     gmtModified: ''
                 },
@@ -140,6 +158,7 @@
                 taskModal: false,
                 beanList: [],
                 beanMethodList: [],
+                concurrents: [{label: '并发运行', value: 1}, {label: '排队执行', value: 0}],
                 tableDataList: [
                     {
                         type: 'expand',
@@ -159,12 +178,6 @@
                         key: 'jobName',
                         ellipsis: 'true',
                         width: 100
-                    },
-                    {
-                        title: '分组',
-                        key: 'jobGroup',
-                        width: 150,
-                        ellipsis: true
                     },
                     {
                         title: '状态',
@@ -207,12 +220,6 @@
                         }
                     },
                     {
-                        title: 'Bean',
-                        key: 'springId',
-                        ellipsis: 'true',
-                        width: 100,
-                    },
-                    {
                         title: '类全名',
                         key: 'beanClass',
                         ellipsis: 'true'
@@ -221,7 +228,13 @@
                         title: '方法',
                         key: 'methodName',
                         ellipsis: 'true',
-                        width: 100,
+                        width: 150,
+                    },
+                    {
+                        title: '参数',
+                        key: 'parameters',
+                        ellipsis: 'true',
+                        width: 150,
                     },
                     {
                         title: '操作',
@@ -514,9 +527,10 @@
 
 
 <style type="text/css" scoped>
-    li{
+    li {
         list-style-type: none;
     }
+
     .link-piece {
         margin: 10px 25px;
     }

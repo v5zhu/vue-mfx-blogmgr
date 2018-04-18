@@ -32,6 +32,7 @@ module.exports = {
                 }
             },
             '/timetask': {
+                // target: 'http://47.96.28.236:9999',
                 target: 'http://localhost:9999',
                 changeOrigin: true,
                 pathRewrite: {
