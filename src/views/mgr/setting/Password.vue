@@ -79,8 +79,7 @@
             logout() {
                 store.dispatch('LogOut', {token: null}).then(res => {
                     if (res.data.success == true) {
-                        Cookies.remove('USER-INFO');
-                        Cookies.remove('USER-TOKEN');
+                        Cookies.remove('LOGIN-ADMIN');
                         window.location.reload();
                     } else {
                         this.$Message.error('退出失败,请联系管理员');
@@ -100,6 +99,9 @@
 
 
 <style type="text/css" scoped>
+    li{
+        list-style-type: none;
+    }
     .link-piece {
         margin: 10px 25px;
     }

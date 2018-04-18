@@ -15,7 +15,7 @@
             <li class="nav-item header-item "
                 @click="changeHeaderStyle">
 
-                <router-link tag="div" to='/admin/mgr/blog' class="nav-link">
+                <router-link tag="div" to='/systemmgr/mgr/blog' class="nav-link">
                     <p>
                         <Icon type="edit" size='25' color="#2d8cf0"></Icon>
                     </p>
@@ -25,7 +25,7 @@
             <li class="nav-item header-item "
                 @click="changeHeaderStyle">
 
-                <router-link tag="div" to='/admin/mgr/log' class="nav-link">
+                <router-link tag="div" to='/systemmgr/mgr/log' class="nav-link">
                     <p>
                         <Icon type="ios-paw" size='25' color="#2d8cf0"></Icon>
                     </p>
@@ -35,11 +35,21 @@
             <li class="nav-item header-item "
                 @click="changeHeaderStyle">
 
-                <router-link tag="div" to='/admin/mgr/system' class="nav-link">
+                <router-link tag="div" to='/systemmgr/mgr/system' class="nav-link">
                     <p>
                         <Icon type="settings" size='25' color="#2d8cf0"></Icon>
                     </p>
                     <p style="color:#0d5477;font-weight: 700;"> 系统管理 </p>
+                </router-link>
+            </li>
+            <li class="nav-item header-item "
+                @click="changeHeaderStyle">
+
+                <router-link tag="div" to='/systemmgr/mgr/setting' class="nav-link">
+                    <p>
+                        <Icon type="settings" size='25' color="#2d8cf0"></Icon>
+                    </p>
+                    <p style="color:#0d5477;font-weight: 700;"> 设置中心 </p>
                 </router-link>
             </li>
         </ul>
@@ -144,7 +154,7 @@
                 e.preventDefault();
                 this.$store.dispatch('LogOut').then(res => {
                     if (res.data.success == true) {
-                        this.$router.push({path: '/admin/login'});
+                        this.$router.push({path: '/systemmgr/login'});
                     } else {
                         this.$Message.error('退出失败,请联系管理员');
                     }

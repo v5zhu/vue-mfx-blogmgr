@@ -81,7 +81,6 @@
                     var data = res.data;
                     if (data.success == true) {
                         var user = data.payload;
-                        Cookies.set('USER-INFO', user);
                         this.$Message.success('保存成功');
                     } else {
                         this.$Message.error('保存失败');
@@ -106,6 +105,9 @@
 
 
 <style type="text/css" scoped>
+    li{
+        list-style-type: none;
+    }
     .link-piece {
         margin: 10px 25px;
     }

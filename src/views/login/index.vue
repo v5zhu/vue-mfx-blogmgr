@@ -117,15 +117,9 @@
                     if (valid) {
                         this.loading = true;
                         this.$store.dispatch('Login', this.loginForm).then(res => {
-                            if (res.data.success == true) {
-                                this.$Message.success('登录成功');
-                                var user = res.data.payload;
-                                Cookies.set('USER-INFO', user);
-                                this.loading = false;
-                                this.$router.push({path: '/admin/dashboard'});
-                            } else {
-                                this.$Message.success('登录失败');
-                            }
+                            this.$Message.success('登录成功');
+                            this.loading = false;
+                            this.$router.push({path: '/systemmgr/dashboard'});
                         }).catch(err => {
                             this.$Message.error(err);
                             this.loading = false;

@@ -4,39 +4,39 @@ import Full from '@/containers/BackFull';
 
 export const articleMgrRouterMap = [
     {
-        path: '/admin/mgr/blog',
+        path: '/systemmgr/mgr/blog',
         name: '博客管理',
         icon: 'ios-book',
-        redirect: '/admin/mgr/blog/article',
+        redirect: '/systemmgr/mgr/blog/article',
         component: Full,
         hidden: false,
         children: [
             {
-                path: '/admin/mgr/blog/article',
+                path: '/systemmgr/mgr/blog/article',
                 name: '文章管理',
                 icon: 'edit',
                 component: _import('mgr/ArticleMgr'),
                 hidden: false
             }, {
-                path: '/admin/mgr/blog/article/edit/:id',
+                path: '/systemmgr/mgr/blog/article/edit/:id',
                 name: '文章编辑',
                 icon: 'stats-bars',
                 component: _import('mgr/ArticleEdit'),
                 hidden: true
             }, {
-                path: '/admin/mgr/blog/article/publish',
+                path: '/systemmgr/mgr/blog/article/publish',
                 name: '文章发表',
                 icon: 'stats-bars',
                 component: _import('mgr/ArticleEdit'),
                 hidden: true
             }, {
-                path: '/admin/mgr/blog/tag',
+                path: '/systemmgr/mgr/blog/tag',
                 name: '我的标签',
                 icon: 'ios-pricetags',
                 component: _import('mgr/Tag'),
                 hidden: false,
             }, {
-                path: '/admin/mgr/blog/category',
+                path: '/systemmgr/mgr/blog/category',
                 name: '我的分类',
                 icon: 'network',
                 component: _import('mgr/Category'),
@@ -45,11 +45,11 @@ export const articleMgrRouterMap = [
         ]
     },
     {
-        path: '/admin/mgr/article/preview/:id',
+        path: '/systemmgr/mgr/article/preview/:id',
         name: '文章预览',
         icon: 'stats-bars',
         hidden: true,
-        redirect: '/admin/mgr/article/preview/:id/',
+        redirect: '/systemmgr/mgr/article/preview/:id/',
         component: {
             render(c) {
                 return c('router-view')
@@ -57,7 +57,7 @@ export const articleMgrRouterMap = [
         },
         children: [
             {
-                path: '/admin/mgr/article/preview/:id/',
+                path: '/systemmgr/mgr/article/preview/:id/',
                 name: '文章预览',
                 icon: 'stats-bars',
                 hidden: true,

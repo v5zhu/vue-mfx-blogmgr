@@ -1,14 +1,14 @@
 import {
+    deleteUser,
+    getAuthorInfo,
+    getInfo,
+    listUser,
+    login,
     loginByEmail,
     logout,
-    listUser,
-    deleteUser,
-    modifyUser,
     modifyPassword,
-    getInfo,
-    getAuthorInfo,
+    modifyUser,
     register,
-    login,
     setUserRole
 } from 'api/login';
 import Cookies from 'js-cookie';
@@ -77,6 +77,8 @@ const user = {
         Login({commit, state}, data) {
             return new Promise((resolve, reject) => {
                 login(data).then(response => {
+                    //设置Cookie
+                    Cookies.set("LOGIN-ADMIN", response.data.payload, {expires: 1})
                     resolve(response);
                 }).catch(error => {
                     reject(error);
@@ -86,6 +88,8 @@ const user = {
         Register({commit, state}, data) {
             return new Promise((resolve, reject) => {
                 register(data).then(response => {
+                    //设置Cookie
+                    Cookies.set("LOGIN-ADMIN", response.data.payload, {expires: 1})
                     resolve(response);
                 }).catch(error => {
                     reject(error);
@@ -122,6 +126,8 @@ const user = {
         ModifyUser({commit, state}, data) {
             return new Promise((resolve, reject) => {
                 modifyUser(data).then(response => {
+                    //设置Cookie
+                    Cookies.set("LOGIN-ADMIN", response.data.payload, {expires: 1})
                     resolve(response);
                 }).catch(error => {
                     reject(error);
@@ -143,13 +149,6 @@ const user = {
             return new Promise((resolve, reject) => {
                 loginByEmail(email, userInfo.password).then(response => {
                     const data = response.data.payload;
-                    Cookies.set('Admin-Token', data.token);
-                    Cookies.set('USER-ID', data.id);
-                    commit('SET_ID', data.id);
-                    // console.error(data);
-
-                    commit('SET_TOKEN', data.token);
-                    commit('SET_EMAIL', email);
                     resolve();
                 }).catch(error => {
                     reject(error);
@@ -192,7 +191,6 @@ const user = {
                 commit('SET_CODE', code);
                 loginByThirdparty(state.status, state.email, state.code, state.auth_type).then(response => {
                     commit('SET_TOKEN', response.data.token);
-                    Cookies.set('Admin-Token', response.data.token);
                     resolve();
                 }).catch(error => {
                     reject(error);
@@ -226,7 +224,6 @@ const user = {
             return new Promise(resolve => {
                 commit('SET_ROLES', [role]);
                 commit('SET_TOKEN', role);
-                Cookies.set('Admin-Token', role);
                 resolve();
             })
         }

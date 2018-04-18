@@ -331,7 +331,7 @@
             },
             goBack() {
                 this.$router.push({
-                    path: '/admin/mgr/blog/article'
+                    path: '/systemmgr/mgr/blog/article'
                 });
             },
             handleSubmit(status, refName) {
@@ -354,7 +354,7 @@
                                 var resp = res.data;
                                 if (resp.success == true) {
                                     this.$Message.success(msg + '成功!');
-                                    this.$router.push({path: '/admin/mgr/blog/article'});
+                                    this.$router.push({path: '/systemmgr/mgr/blog/article'});
                                 } else {
                                     this.$Message.error(msg + '失败!');
                                 }
@@ -366,7 +366,7 @@
                                 var resp = res.data;
                                 if (resp.success == true) {
                                     this.$Message.success(msg + '成功!');
-                                    this.$router.push({path: '/admin/mgr/blog/article'});
+                                    this.$router.push({path: '/systemmgr/mgr/blog/article'});
                                 } else {
                                     this.$Message.error(msg + '失败!');
                                 }

@@ -6,6 +6,7 @@ import {globalRouterMap} from './globalRouterMap';
 import {articleMgrRouterMap} from './articleMgrRouterMap';
 import {logRouterMap} from './logRouterMap';
 import {systemMgrRouterMap} from './systemMgrRouterMap';
+import {settingCenterRouterMap} from './settingCenterRouterMap';
 
 const _import = require('./_import_' + process.env.NODE_ENV);
 
@@ -15,18 +16,18 @@ Vue.use(Router);
 
 export const constantRouterMap = [
     {
-        path: '/admin/login',
+        path: '/systemmgr/login',
         component: Login,
         hidden: true
     },
     {
         name: '首页',
         path: '/',
-        redirect: '/admin/dashboard',
+        redirect: '/systemmgr/dashboard',
         component: BackFull,
         hidden: false,
         children: [{
-            path: '/admin/dashboard',
+            path: '/systemmgr/dashboard',
             name: 'Dashboard',
             icon: 'speedometer',
             component: _import('Dashboard')
@@ -35,6 +36,7 @@ export const constantRouterMap = [
 ].concat(globalRouterMap)
     .concat(articleMgrRouterMap)
     .concat(logRouterMap)
+    .concat(settingCenterRouterMap)
     .concat(systemMgrRouterMap);
 
 const scrollBehavior = (to, from, savedPosition) => {
