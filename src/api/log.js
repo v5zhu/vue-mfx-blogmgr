@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function deleteLog(id) {
     return fetch({
-        url: '/blogmgr/admin/log/delete/' + id + '.token',
+        url: '/systemmgr/admin/log/delete/' + id + '.token',
         method: 'delete'
     });
 }
@@ -10,7 +10,7 @@ export function deleteLog(id) {
 
 export function logList(params) {
     return fetch({
-        url: '/blogmgr/admin/log/list.token',
+        url: '/systemmgr/admin/log/list.token',
         method: 'get',
         params: params
     });

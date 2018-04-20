@@ -336,7 +336,7 @@
                                     },
                                     on: {
                                         click: () => {
-                                            window.open('/systemmgr/mgr/article/preview/' + params.row.id);
+                                            window.open('/admin/mgr/article/preview/' + params.row.id);
                                         }
                                     }
                                 }, '预览')
@@ -414,10 +414,10 @@
             editArticle(id, pageNum, pageSize) {
                 if (id == null) {
                     //发表新文章
-                    window.open('/systemmgr/mgr/blog/article/publish')
+                    window.open('/admin/mgr/blog/article/publish')
                 } else {
                     //编辑文章
-                    window.open('/systemmgr/mgr/blog/article/edit/' + id)
+                    window.open('/admin/mgr/blog/article/edit/' + id)
                 }
             },
             qiniu_upload() {

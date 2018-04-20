@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function articleList(pageInfo) {
     return fetch({
-        url: '/blogmgr/admin/article/list.token',
+        url: '/systemmgr/admin/article/list.token',
         method: 'post',
         data: {
             pageNum: pageInfo.pageNum,
@@ -15,7 +15,7 @@ export function articleList(pageInfo) {
 
 export function articles(params) {
     return fetch({
-        url: '/blogmgr/articles',
+        url: '/systemmgr/articles',
         method: 'get',
         params: params
     });
@@ -23,7 +23,7 @@ export function articles(params) {
 
 export function articlePreview(id) {
     return fetch({
-        url: '/blogmgr/admin/article/preview/' + id + ".token",
+        url: '/systemmgr/admin/article/preview/' + id + ".token",
         method: 'get',
         params: {}
     });
@@ -31,7 +31,7 @@ export function articlePreview(id) {
 
 export function articleDetail(path) {
     return fetch({
-        url: '/blogmgr/admin/article/detail/' + path + ".open",
+        url: '/systemmgr/admin/article/detail/' + path + ".open",
         method: 'get',
         params: {}
     });
@@ -39,7 +39,7 @@ export function articleDetail(path) {
 
 export function articlePublish(article) {
     return fetch({
-        url: '/blogmgr/admin/article/publish.token',
+        url: '/systemmgr/admin/article/publish.token',
         method: 'post',
         data: article,
         headers: {
@@ -50,7 +50,7 @@ export function articlePublish(article) {
 
 export function articleEdit(article) {
     return fetch({
-        url: '/blogmgr/admin/article/modify.token',
+        url: '/systemmgr/admin/article/modify.token',
         method: 'put',
         data: article,
         headers: {
@@ -61,7 +61,7 @@ export function articleEdit(article) {
 
 export function articleAudit(auditInfo) {
     return fetch({
-        url: '/blogmgr/admin/article/audit.token',
+        url: '/systemmgr/admin/article/audit.token',
         method: 'put',
         params: {
             articleId: auditInfo.articleId,
@@ -72,7 +72,7 @@ export function articleAudit(auditInfo) {
 
 export function articleDelete(id) {
     return fetch({
-        url: '/blogmgr/admin/article/delete.token',
+        url: '/systemmgr/admin/article/delete.token',
         method: 'delete',
         params: id,
     });
@@ -81,7 +81,7 @@ export function articleDelete(id) {
 
 export function updateStatistics(statistics) {
     return fetch({
-        url: '/blogmgr/article/statistics',
+        url: '/systemmgr/article/statistics',
         method: 'put',
         data: statistics
     });

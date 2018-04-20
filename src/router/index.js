@@ -16,18 +16,18 @@ Vue.use(Router);
 
 export const constantRouterMap = [
     {
-        path: '/systemmgr/login',
+        path: '/admin/login',
         component: Login,
         hidden: true
     },
     {
         name: '首页',
         path: '/',
-        redirect: '/systemmgr/dashboard',
+        redirect: '/admin/dashboard',
         component: BackFull,
         hidden: false,
         children: [{
-            path: '/systemmgr/dashboard',
+            path: '/admin/dashboard',
             name: 'Dashboard',
             icon: 'speedometer',
             component: _import('Dashboard')

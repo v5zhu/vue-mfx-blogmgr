@@ -119,9 +119,13 @@
                         this.$store.dispatch('Login', this.loginForm).then(res => {
                             this.$Message.success('登录成功');
                             this.loading = false;
-                            this.$router.push({path: '/systemmgr/dashboard'});
+                            this.$router.push({path: '/admin/dashboard'});
                         }).catch(err => {
-                            this.$Message.error(err);
+                            this.$Message.error({
+                                content: err.error,
+                                duration: 3,
+                                closable: true
+                            });
                             this.loading = false;
                         });
 

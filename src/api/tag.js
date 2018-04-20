@@ -2,7 +2,7 @@ import fetch from 'utils/fetch';
 
 export function filterTagList(params) {
     return fetch({
-        url: '/blogmgr/admin/tag/list.token',
+        url: '/systemmgr/admin/tag/list.token',
         method: 'get',
         params: params
     });
@@ -11,7 +11,7 @@ export function filterTagList(params) {
 
 export function tagList(params) {
     return fetch({
-        url: '/blogmgr/admin/tag/list.open',
+        url: '/systemmgr/admin/tag/list.open',
         method: 'get',
         params: params
     });
@@ -19,7 +19,7 @@ export function tagList(params) {
 
 export function tagAdd(tag) {
     return fetch({
-        url: '/blogmgr/admin/tag/save',
+        url: '/systemmgr/admin/tag/save',
         method: 'post',
         data: tag
     });

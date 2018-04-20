@@ -23,12 +23,12 @@ module.exports = {
         assetsPublicPath: '/',
         staticPath: '/static/',
         proxyTable: {
-            '/blogmgr': {
-                target: 'http://systemmgr.mofaxue.com',
-                // target: 'http://localhost:8088',
+            '/systemmgr': {
+                // target: 'http://systemmgr.mofaxue.com',
+                target: 'http://localhost:8888',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/blogmgr': '/blogmgr'
+                    '^/': ''
                 }
             },
             '/timetask': {

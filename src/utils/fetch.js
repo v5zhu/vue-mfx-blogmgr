@@ -12,7 +12,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
     // Do something before request is sent
-    var jsonString = Cookies.get('USER-INFO');
+    var jsonString = Cookies.get('LOGIN-ADMIN');
     if (jsonString) {
         var user = JSON.parse(jsonString);
         config.headers['token'] = user.token;
@@ -26,15 +26,15 @@ service.interceptors.request.use(config => {
 
 // respone拦截器
 service.interceptors.response.use(response => {
-        if (response.data.code == '403') {
+        if (response.data.code == 403) {
             router.replace({
                 path: '/pages/403'
             })
-        } else if (response.data.code == '404') {
+        } else if (response.data.code == 404) {
             router.replace({
                 path: '/pages/403'
             })
-        } else if (response.data.code == '500') {
+        } else if (response.data.code == 500) {
             router.replace({
                 path: '/pages/500'
             })
