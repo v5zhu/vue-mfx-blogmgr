@@ -544,7 +544,7 @@
             // qiniuInit(vue);//初始化七牛数据
 
 
-            var jsonString = Cookies.get('USER-INFO');
+            var jsonString = Cookies.get('LOGIN-ADMIN');
             if (jsonString) {
                 this.loginUser = JSON.parse(jsonString);
             }

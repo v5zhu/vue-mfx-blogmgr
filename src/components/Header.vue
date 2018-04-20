@@ -57,67 +57,35 @@
 
         <ul class="nav navbar-nav ml-auto">
 
-            <li class="nav-item d-md-down-none">
+            <li class="nav-item d-md-down-none dropdown">
                 <a class="nav-link">
                     <Icon type="android-notifications" size="20"></Icon>
                     <span class="badge badge-pill badge-danger">5</span></a>
             </li>
 
 
-            <Dropdown class="nav-item" v-if="loginUser && loginUser.token!=undefined">
+            <Dropdown trigger="click" class="nav-item" v-if="loginUser && loginUser.token!=undefined">
                 <a href="javascript:void(0)" style="position: relative;">
                     <div slot="button">
-                        <img src="/static/img/avatars/man-avatar.png" class="img-avatar" alt="o">
-                        <div class="d-md-down-none"
-                             style="max-width: 60px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">
+                        <a href="javascript:void(0)">
+                            <img src="/static/img/avatars/man-avatar.png" class="img-avatar" alt="o">
                             {{loginUser.nickname}}
-                        </div>
+                            <Icon type="arrow-down-b"></Icon>
+                        </a>
                     </div>
                 </a>
                 <Dropdown-menu slot="list">
                     <Dropdown-item>
-                        <p class="dropdown-itemp">
-                            <Icon type="alert"></Icon>
-                            Updates<span class="badge badge-info">42</span></p>
-
-
+                        <a href="" @click="Logout">
+                            <p class="dropdown-itemp">
+                                <Icon type="power"></Icon>
+                                Logout
+                            </p>
+                        </a>
                     </Dropdown-item>
-                    <Dropdown-item>
-                        <p class="dropdown-itemp">
-                            <Icon type="chatbox-working"></Icon>
-                            Messages<span class="badge badge-success">42</span></p>
-
-                    </Dropdown-item>
-                    <Dropdown-item>
-                        <p class="dropdown-itemp">
-                            <Icon type="chatbox-working"></Icon>
-                            Messages<span class="badge badge-danger">42</span></p>
-
-                    </Dropdown-item>
-                    <Dropdown-item divided>
-                        <p class="dropdown-itemp">
-                            <Icon type="android-contact"></Icon>
-                            Profile
-                        </p>
-
-                    </Dropdown-item>
-                    <Dropdown-item>
-                        <p class="dropdown-itemp">
-                            <Icon type="android-settings"></Icon>
-                            Settings
-                        </p>
-                    </Dropdown-item>
-
-                    <Dropdown-item><a href="" @click="Logout">
-                        <p class="dropdown-itemp">
-                            <Icon type="power"></Icon>
-                            Logout
-                        </p>
-                    </a></Dropdown-item>
 
                 </Dropdown-menu>
             </Dropdown>
-
 
             <li class="nav-item d-md-down-none">
                 <a class="nav-link navbar-toggler aside-menu-toggler" @click="asideToggle">&#9776;</a>
@@ -194,8 +162,7 @@
 <style type="text/css" scoped>
     .dropdown-itemp {
         text-align: left;
-        font-size: 15px;
-        padding: 10px;
+        font-size: 12px;
     }
 
     .header-item .ivu-dropdown-item {
@@ -224,7 +191,7 @@
 
     }
 
-    ul > li:not(#sidebar_minimize):hover {
+    ul > li:not(#sidebar_minimize,.dropdown):hover {
         border-bottom: 5px solid #20a0ff;
     }
 </style>

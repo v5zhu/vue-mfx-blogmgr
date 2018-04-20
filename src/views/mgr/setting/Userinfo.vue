@@ -70,7 +70,7 @@
             }
         },
         mounted() {
-            var jsonString = Cookies.get('USER-INFO');
+            var jsonString = Cookies.get('LOGIN-ADMIN');
             if (jsonString) {
                 this.loginUser = JSON.parse(jsonString);
             }

@@ -37,6 +37,7 @@
     "vue-router": "2.5.3",
     "vue-tinymce": "github:lpreterite/vue-tinymce",
     "vue-validator": "^3.0.0-alpha.2",
+    "vuedraggable": "^2.16.0",
     "vuex": "2.3.1"
   },
   "devDependencies": {
