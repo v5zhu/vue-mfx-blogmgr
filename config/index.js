@@ -24,16 +24,16 @@ module.exports = {
         staticPath: '/static/',
         proxyTable: {
             '/systemmgr': {
-                // target: 'http://systemmgr.mofaxue.com',
-                target: 'http://localhost:8888',
+                target: 'http://systemmgr.mofaxue.com',
+                // target: 'http://localhost:8888',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/': ''
                 }
             },
             '/timetask': {
-                target: 'http://systemmgr.mofaxue.com',
-                // target: 'http://localhost:9999',
+                // target: 'http://systemmgr.mofaxue.com',
+                target: 'http://localhost:9999',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/': ''

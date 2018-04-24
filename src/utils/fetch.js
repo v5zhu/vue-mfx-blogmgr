@@ -6,7 +6,7 @@ import router from '../router';
 // 创建axios实例
 const service = axios.create({
     baseURL: process.env.BASE_API, // api的base_url
-    timeout: 15000                  // 请求超时时间
+    timeout: 30000                  // 请求超时时间
 });
 
 // request拦截器
@@ -28,11 +28,11 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(response => {
         if (response.data.code == 403) {
             router.replace({
-                path: '/pages/403'
+                path: '/admin/login'
             })
         } else if (response.data.code == 404) {
             router.replace({
-                path: '/pages/403'
+                path: '/pages/404'
             })
         } else if (response.data.code == 500) {
             router.replace({

@@ -52,6 +52,17 @@
                     <p style="color:#0d5477;font-weight: 700;"> 设置中心 </p>
                 </router-link>
             </li>
+
+            <li class="nav-item header-item "
+                @click="changeHeaderStyle">
+
+                <router-link tag="div" to='/admin/mgr/subscribe' class="nav-link">
+                    <p>
+                        <Icon type="ios-star" size='25' color="#2d8cf0"></Icon>
+                    </p>
+                    <p style="color:#0d5477;font-weight: 700;"> 订阅中心 </p>
+                </router-link>
+            </li>
         </ul>
 
 

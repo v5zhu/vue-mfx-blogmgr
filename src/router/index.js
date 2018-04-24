@@ -7,6 +7,7 @@ import {articleMgrRouterMap} from './articleMgrRouterMap';
 import {logRouterMap} from './logRouterMap';
 import {systemMgrRouterMap} from './systemMgrRouterMap';
 import {settingCenterRouterMap} from './settingCenterRouterMap';
+import {subscribeRouterMap} from './subscribeRouterMap';
 
 const _import = require('./_import_' + process.env.NODE_ENV);
 
@@ -37,6 +38,7 @@ export const constantRouterMap = [
     .concat(articleMgrRouterMap)
     .concat(logRouterMap)
     .concat(settingCenterRouterMap)
+    .concat(subscribeRouterMap)
     .concat(systemMgrRouterMap);
 
 const scrollBehavior = (to, from, savedPosition) => {
