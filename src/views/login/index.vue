@@ -23,21 +23,21 @@
 </template>
 
 <script>
-    import validtor from 'utils/validate';
+    import RegexValidateUtils from 'utils/RegexValidateUtils';
     import Cookies from 'js-cookie';
 
     export default {
         name: 'login',
         data() {
             const validateEmail = (rule, value, callback) => {
-                if (!validatorisWscnEmail(value)) {
+                if (!RegexValidateUtils.isWscnEmail(value)) {
                     callback(new Error('请输入正确的合法邮箱'));
                 } else {
                     callback();
                 }
             };
             const validatePhone = (rule, value, callback) => {
-                if (!validator.validPhone(value)) {
+                if (!RegexValidateUtils.validPhone(value)) {
                     callback(new Error('请输入正确的账号'));
                 } else {
                     callback();

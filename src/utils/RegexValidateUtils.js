@@ -11,8 +11,8 @@ export default {
 
     /* 是否是手机号码*/
     validPhone(str) {
-        const reg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$/i;
-        return reg.test(str.trim());
+        const reg = /^(13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9])\\d{8}$/;
+        return reg.test(str);
     },
 
     /* 合法uri*/
